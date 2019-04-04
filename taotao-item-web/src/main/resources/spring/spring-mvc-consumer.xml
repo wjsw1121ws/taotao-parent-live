@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+    http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 引入dubbo发布服务 -->
+    <dubbo:application name="taotao-search-web"/>
+    <!--注册中心-->
+    <dubbo:registry protocol="zookeeper" address="192.168.25.133:2180"/>
+    <!-- 引入服务 -->
+    <dubbo:reference id="itemService" interface="com.wcc.taotao.manager.service.ItemService" timeout="300000"/>
+
+</beans>
